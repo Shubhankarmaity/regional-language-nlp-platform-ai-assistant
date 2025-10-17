@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Digital Service</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+      body { background: radial-gradient(circle at 20% 20%, #dbf1fc 40%, #fff 100%);}
+      .ai-avatar-img { width: 108px; height: 108px; border-radius: 50%;
+        margin: 30px auto 18px auto; display: flex; justify-content:center; align-items:center;
+        box-shadow: 0 6px 28px #00c4ff36;
+        background: linear-gradient(135deg,#7cd8ff 60%,#9fffd2);
+        transition: transform .25s;}
+      .ai-animating { animation: avatarMove 1.1s cubic-bezier(.7,.2,.8,1.9) 2;}
+      @keyframes avatarMove { 0%{transform:scale(1) rotate(0deg);}
+        50%{transform:scale(1.13) rotate(-8deg);}
+        80%{transform:scale(0.97) rotate(6deg);}
+        100%{transform:scale(1) rotate(0deg);}
+      }
+      .answer-bar {max-width:600px; margin:20px auto 22px auto; min-height:70px;
+        background:#eafdfe; border-radius:15px; box-shadow:0 6px 25px #22a1e038;
+        padding:24px 20px 20px 24px; color:#134279; font-size:1.18em; font-weight:500;}
+      .service-headline { text-align:center; font-size:2.22em; font-weight:800; color:#11a8e7; margin-top:18px;}
+      .service-label { text-align:center; font-weight:700; color:#127cc3; margin-bottom:17px;}
+      .service-question-form {display:flex; flex-direction:column; align-items:center; margin-top:12px;}
+      textarea { width:310px; }
+      input[type="submit"]{background:linear-gradient(90deg,#039bfa,#31e9d6); color:#fff;}
+      .back-link {text-align:center; margin-top:20px; font-size:1.14em;}
+    </style>
+</head>
+<body>
+  <div class="service-headline">Banking Service Chatbot</div>
+  <div class="service-label">Ask your banking questions in any language!</div>
+  <div class="ai-avatar-img" id="avatarBot">
+    <img src="/static/image.jpg" alt="AI Avatar" style="width:92px;height:92px;border-radius:50%;">
+  </div>
+  <form method="post" id="textForm" class="service-question-form">
+    <textarea name="prompt" rows="4" required placeholder="Your banking question...">{{ user_input }}</textarea>
+    <input type="submit" value="Ask">
+  </form>
+  <div class="answer-bar" id="outputBlock">{% if output %}{{ output }}{% endif %}</div>
+  <div class="back-link"><a href="/">⬅️ Home</a></div>
+  <script>
+    function triggerAvatarMotion() {
+      var bot = document.getElementById('avatarBot');
+      if(!bot) return;
+      bot.classList.add('ai-animating');
+      setTimeout(()=>bot.classList.remove('ai-animating'), 1300);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      let textForm = document.getElementById("textForm");
+      textForm.onsubmit = function(e){ setTimeout(triggerAvatarMotion, 500); };
+      {% if output %} setTimeout(triggerAvatarMotion, 600); {% endif %}
+    });
+  </script>
+</body>
+</html>

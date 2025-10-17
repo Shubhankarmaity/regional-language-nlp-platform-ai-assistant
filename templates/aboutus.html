@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - Team Digital Services</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+      body { background: linear-gradient(120deg,#eaf5ff 0%, #fff 95%);}
+      .about-head {
+        text-align:center; font-weight:900; font-size:2.22em; color:#167ad2;
+        letter-spacing:.15px; margin:28px 0 10px 0;
+      }
+      .team-grid {
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+        gap: 32px; justify-content:center; margin:28px 7vw 14px 7vw;
+      }
+      .team-card {
+        background:#fff; border-radius:18px; box-shadow:0 6px 28px #109cff22;
+        padding:32px 16px 22px 16px; display:flex; flex-direction:column; align-items:center;
+        text-align:center; transition:.18s; min-height:340px;
+      }
+      .team-card:hover { box-shadow:0 18px 38px #09bcff52,0 2px 10px #77aaff22; }
+      .team-photo {
+        width:90px; height:90px; border-radius:50%; margin-bottom:15px;
+        object-fit:cover; box-shadow:0 3px 16px #17b1e233;
+      }
+      .team-name { font-weight:700; font-size:1.25em; color:#0963ba; margin-bottom:5px;}
+      .team-role { font-weight:500; color:#13c099; margin-bottom:8px;}
+      .team-desc { font-size:1.05em; color:#294d68; margin-bottom:5px;}
+      .about-note {text-align:center;font-size:1.08em;color:#1773b5;margin-top:28px;}
+      .back-link {text-align:center;margin-top:20px;}
+    </style>
+</head>
+<body>
+  <div class="about-head">Meet the Team</div>
+  <div class="about-note">We are a passionate group working to enable multilingual digital services for Bharat!</div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="/static/members/member1.jpg" alt="Shubhankar" class="team-photo">
+      <div class="team-name">Shubhankar Maity</div>
+      <div class="team-role">CSE Student / Team Lead</div>
+      <div class="team-desc">Backend, ML & Architecture King of Team. Loves Python, ML, Web APIs.</div>
+    </div>
+    <div class="team-card">
+      <img src="/static/members/member2.jpg" alt="Akash" class="team-photo">
+      <div class="team-name">Aditi</div>
+      <div class="team-role">Frontend Developer</div>
+      <div class="team-desc">UI/UX Specialist. Makes everything pixel-perfect and simple for users!</div>
+    </div>
+    <div class="team-card">
+      <img src="/static/members/member3.jpg" alt="Soham" class="team-photo">
+      <div class="team-name">Parambrata</div>
+      <div class="team-role">AI & NLP Guy</div>
+      <div class="team-desc">Language, translation & chatbot workflow. Loves Indian languages & AI!</div>
+    </div>
+    <div class="team-card">
+      <img src="/static/members/member4.jpg" alt="Priya" class="team-photo">
+      <div class="team-name">Rocky</div>
+      <div class="team-role">Data & Visuals</div>
+      <div class="team-desc">Data pipeline, dashboard, charts. Keeps our analytics lively!</div>
+    </div>
+    <div class="team-card">
+      <img src="/static/members/member5.jpg" alt="Sunil" class="team-photo">
+      <div class="team-name">Biswanath</div>
+      <div class="team-role">Integrator & QA</div>
+      <div class="team-desc">Testing, code merge, bug-fix. Ensures smooth demo demo for judges!</div>
+    </div>
+  </div>
+  <div class="back-link"><a href="/">⬅️ Home</a></div>
+</body>
+</html>

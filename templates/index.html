@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Language Digital Services Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+      body { background: linear-gradient(120deg,#f2f4fc 0%, #bee5fd 80%, #f5fbff 100%);}
+      .input-row { display:flex; gap:40px; justify-content: center; margin-top:38px; }
+      .ibox { background:#fff; box-shadow:0 4px 18px #73c0f826; border-radius:14px; padding:30px 18px 20px 18px; width:310px; min-width:230px; display:flex; flex-direction:column; align-items:center; }
+      .ibox h3 {margin:0 0 12px 0; color:#1371bc;}
+      .ibox .input-icon { font-size:2em; margin-bottom:10px;}
+      textarea { border:2px solid #0085d4; border-radius:8px; width:94%; font-size:1em; margin-bottom:16px; padding:10px;}
+      input[type="submit"], button { margin-top:8px; font-size:1.05em; border-radius:7px;}
+      #voiceBtn { background:linear-gradient(90deg,#1877f2,#43e4c6); color:#fff;}
+      #sendVoiceBtn { background:linear-gradient(90deg,#43e4c6,#beedfd); color:#00549a;}
+      .answer-bar { max-width:670px; margin:28px auto 10px auto; min-height:90px; background:#e1f8fd; border-radius:14px; box-shadow:0 6px 29px #1f8bc133; padding:28px 18px 18px 24px; color:#114175; font-size:1.18em;}
+      .digital-services-label {text-align:center;font-weight:700;color:#0085d4;margin:32px 0 14px;}
+      .serv-card { background: #fff; border-radius:18px; box-shadow:0 4px 18px #0074c41b,0 0.5px 9px #0057a120; width:248px; min-height:240px; padding:22px 14px 14px 14px; display:flex; flex-direction:column; align-items:center; align-self: flex-start; margin-bottom: 6px; position:relative; transition:box-shadow .15s;}
+      .serv-card:hover { box-shadow: 0 8px 36px #16afd690,0 2px 16px #0069ae2a; }
+      .serv-icon { font-size:2.22em; margin:7px 0 4px;}
+      .serv-title { font-weight:700; font-size:1.17em; color:#267ec2; margin-bottom:2px;}
+      .serv-desc { font-size:.99em; color:#1882c699; margin-bottom:12px; text-align:center;}
+      .servchat-in {width:93%; padding:7px 7px; margin-bottom:8px; border:1.5px solid #1882c6c0; border-radius:7px; outline:none; transition:.16s;}
+      .servchat-in:focus {border:1.5px solid #095bb5;}
+      .serv-card button {
+        background:linear-gradient(90deg, #0085d4, #3ce3bb); color:#fff; font-weight:600; padding:4px 14px; margin-bottom:6px; border-radius:6px;
+        border:none; font-size:1em; box-shadow:0 1.5px 6px #0085d410; cursor:pointer; margin-left:5px;}
+      .servchat-out {
+        color:#22793a; background:#f1fcf5; font-size:1.05em; border-radius:7px; box-shadow:0 1px 5px #1fdca122;
+        margin-top:8px; width:96%; min-height:34px; padding:7px 9px 6px 10px; font-weight:500;
+        border:1px solid #00999a10; word-break:break-word;
+      }
+      @media (max-width:900px){
+        .input-row {flex-direction:column;align-items:center;}
+        .ibox {width:96vw;}
+      }
+    </style>
+</head>
+<body>
+  <h2 style="text-align:center; color:#0867c6; font-size:2.3em; font-weight:800; margin-bottom:0;">
+      🇮🇳 Digital Services Chatbot — Indian Languages
+  </h2>
+  <div class="digital-services-label">
+    तुरंत सवाल पूछो — हिंदी/বাংলা/தமிழ்/English आदि
+  </div>
+  <div class="input-row">
+    <!-- Text Input -->
+    <div class="ibox">
+      <span class="input-icon">⌨️</span>
+      <h3>Text Mode</h3>
+      <form id="textForm" method="post" autocomplete="off">
+        <textarea id="inputText" name="prompt" rows="4" placeholder="Type your question here..." required></textarea>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+    <!-- Voice Input -->
+    <div class="ibox">
+      <span class="input-icon">🎤</span>
+      <h3>Voice Mode</h3>
+      <textarea id="voiceInput" rows="4" placeholder="Your spoken question will appear here..." readonly></textarea>
+      <button type="button" id="voiceBtn">🎤 Speak</button>
+      <select id="micLang" style="margin-bottom:9px;">
+  <option value="hi-IN">हिन्दी</option>
+  <option value="bn-IN">বাংলা</option>
+  <option value="ta-IN">தமிழ்</option>
+  <option value="en-US">English</option>
+</select>
+
+</select>
+
+      <button type="button" id="sendVoiceBtn" onclick="sendVoice()">Send</button>
+    </div>
+  </div>
+ 
+  
+<div class="answer-bar" id="outputBlock" data-lang="{{ orig_lang|default('hi') }}">
+  {% if output %}
+    {{ output }}
+  {% else %}
+    Answer will appear here...
+  {% endif %}
+</div>
+
+
+
+
+<div class="digital-services-label">
+  Digital Services Quick Help (सीधे सेवा चुनकर सवाल पूछिए!)
+</div>
+<div class="service-card-grid">
+  <div class="serv-card" onclick="window.location='/banking'">
+    <div class="serv-icon-row"><span class="serv-icon">🏦</span></div>
+    <div class="serv-title">Banking</div>
+    <div class="serv-desc">Account, Balance, IFSC, Loans…</div>
+  </div>
+  <div class="serv-card" onclick="window.location='/government'">
+    <div class="serv-icon-row"><span class="serv-icon">🏛️</span></div>
+    <div class="serv-title">Government</div>
+    <div class="serv-desc">Ration Card, Voter ID, CSC, Pension…</div>
+  </div>
+  <div class="serv-card" onclick="window.location='/health'">
+    <div class="serv-icon-row"><span class="serv-icon">🏥</span></div>
+    <div class="serv-title">Health</div>
+    <div class="serv-desc">Doctor, Hospital, Ayushman, Vaccines…</div>
+  </div>
+  <div class="serv-card" onclick="window.location='/education'">
+    <div class="serv-icon-row"><span class="serv-icon">🎓</span></div>
+    <div class="serv-title">Education</div>
+    <div class="serv-desc">Scholarship, Admission, Results…</div>
+  </div>
+  <div class="serv-card" onclick="window.location='/transport'">
+    <div class="serv-icon-row"><span class="serv-icon">🚆</span></div>
+    <div class="serv-title">Transport</div>
+    <div class="serv-desc">IRCTC, Ticket, Bus, Train Time…</div>
+  </div>
+  <div class="serv-card" onclick="window.location='/agriculture'">
+    <div class="serv-icon-row"><span class="serv-icon">🌾</span></div>
+    <div class="serv-title">Agriculture</div>
+    <div class="serv-desc">PM-Kisan, Crop, Price, Mandis…</div>
+  </div>
+</div>
+
+<div style="text-align:center; margin:44px 0 14px 0;">
+  <a href="/aboutus" style="color:#1281c8; font-weight:700; font-size:1.09em; background: #eafcff; padding:7px 23px; border-radius:9px; text-decoration:none;">
+    🌟 Meet Our Team / About Us
+  </a>
+</div>
+
+
+
+</div>
+<script src="/static/main.js"></script>
+</body>
+</html>

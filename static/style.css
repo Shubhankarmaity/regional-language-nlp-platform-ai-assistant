@@ -1,0 +1,97 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #f1f5fa 0%, #e5f4fc 80%, #fafeff 100%);
+  margin: 0; padding: 0;
+}
+h2, .service-headline {
+  color: #116abd;
+  font-weight: 800;
+  text-align: center;
+  font-size: 2.28em;
+  letter-spacing: 0.44px;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+.digital-services-label {
+  text-align:center; font-weight:700; color:#0085d4;
+  margin:24px 0 12px 0; font-size: 1.14em;
+}
+.input-row {
+  display: flex; gap:32px; justify-content:center; align-items:start;
+  margin-top:32px; margin-bottom:12px;
+}
+.ibox {
+  background: rgba(255,255,255,.88);
+  border-radius: 22px;
+  box-shadow: 0 4px 36px #51a8fc30, 0 1.5px 8px #0366bf15;
+  padding: 28px 18px 20px;
+  width: 295px; min-width:187px; display:flex; flex-direction:column; align-items:center;
+  position:relative;
+  transition:box-shadow 0.2s;
+}
+.ibox:hover { box-shadow:0 8px 40px #36aaf481,0 2px 10px #1476bf2a;}
+.ibox h3 {margin:0 0 12px 0; color:#1471cc; font-size:1.18em; font-weight:600; letter-spacing:.3px;}
+.ibox .input-icon { font-size:2.2em; margin-bottom:9px;}
+textarea {
+  border:2px solid #0085d4; background:rgba(245,250,252,1);
+  border-radius:11px; width:97%; font-size:1em; margin-bottom:13px; padding:10px;
+  outline:none; resize:vertical; min-height:55px; max-height:122px; transition:border .15s;
+}
+textarea:focus { border:2px solid #3fa6fe; background:#fafdff; }
+input[type="submit"], button {
+  margin-top:8px; font-size:1.07em; border-radius:7.2px; border:none;
+  padding:9px 22px; font-weight:600; cursor:pointer; box-shadow:0 0.5px 4px #189efe19;
+}
+#voiceBtn { background:linear-gradient(90deg,#2281ef,#35dac6); color:#fff;}
+#sendVoiceBtn { background:linear-gradient(90deg,#35dac6,#b5eafe); color:#1989a4;}
+input[type="submit"] { background:linear-gradient(90deg,#116abd,#29b8ff); color:#fff;}
+.answer-bar {
+  max-width:630px; margin:34px auto 12px auto; min-height:85px;
+  background:rgba(227,245,254,0.99);
+  border-radius:18px; box-shadow:0 6px 30px #009ccc23;
+  padding:24px 26px 14px 24px; color:#15436d; font-size:1.17em; font-weight:500;
+  font-family:inherit; transition:box-shadow 0.17s;
+}
+.answer-bar b { color:#004b79;}
+.demo-list {
+  background:#f4fbfd; border-radius:13px; box-shadow:0 1.5px 8px #0085d415;
+  max-width:540px; margin:28px auto 24px; padding:17px 26px; font-size:1.07em;
+}
+.demo-list li {padding-bottom:8px;}
+@media (max-width:900px){
+  .input-row {flex-direction:column; align-items:center; gap:22px;}
+  .ibox, .answer-bar {width:97vw; max-width:98vw;}
+  .demo-list {padding:10px 4vw;}
+}
+/* Service Cards Grid & Modern Card Styles */
+.service-card-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:30px; justify-content:center; margin:16px 8vw 8px 8vw; margin-bottom:32px;
+}
+.serv-card {
+  background:#fff; border-radius:23px;
+  box-shadow:0 9px 40px #13b5f230,0 1.5px 10px #3575ca19;
+  min-height:220px; padding:28px 18px 17px 18px;
+  display:flex; flex-direction:column; align-items:center; cursor:pointer;
+  transition:box-shadow .16s, transform .13s, background .14s;
+  border:1.7px solid #daf1ff; position:relative;
+}
+.serv-card:hover {
+  background:#f1fbff;
+  box-shadow:0 18px 56px #11c2ff88, 0 1.9px 21px #13d0fa25;
+  transform:translateY(-4px) scale(1.038); border-color:#86e1ff;
+}
+.serv-icon-row, .serv-icon-bg {
+  background:linear-gradient(135deg,#96deff 68%,#d9f6ff 100%);
+  border-radius:50%; width:54px; height:54px; margin-bottom:14px;
+  box-shadow:0 7px 24px #32eaff25; display:flex;align-items:center;justify-content:center;
+}
+.serv-icon {font-size:2.2em; filter:drop-shadow(0 0 3px #e6f6ff);}
+.serv-title {font-weight:700; font-size:1.17em; color:#0267a5;
+  margin-bottom:6px; letter-spacing:.19px; text-align:center;}
+.serv-desc {font-size:1.01em; color:#315f87bf; margin-bottom:7px;
+  text-align:center; min-height:26px;}
+@media (max-width:980px){
+  .service-card-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;}
+  .serv-card{min-width:160px;}
+}
