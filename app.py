@@ -5,7 +5,7 @@ from deep_translator import GoogleTranslator
 import joblib
 
 
-# Village dialect mapping function -- for answer transformation
+# Village dialect mapping function -- for answer transformations
 def convert_to_village_style(text):
     mapping = {
         'আমি': 'আমারে',
