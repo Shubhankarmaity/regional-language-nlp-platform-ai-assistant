@@ -4,7 +4,7 @@
 
 ### Dialect-Aware AI Chatbot for Indian Language Digital Inclusion
 
-![Hero Banner](project_images_chatgpt/NLP1.png)
+![Hero Banner](images/NLP1.png)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
@@ -84,14 +84,14 @@ Specialized chatbots for **Banking**, **Government**, **Health**, **Education**,
 flowchart TD
     A["🗣️ User's Prompt"] -->|LANGDETECT| B{"Prompt is in English?"}
     B -->|YES| D["🤖 LLM (Gemini 2.0 Flash)"]
-    B -->|NO| C["🔄 DEEP-TRANSLATOR\n(Custom Model)"]
+    B -->|NO| C["🔄 DEEP-TRANSLATOR <br> (Custom Model)"]
     C --> C1["English-Translated Prompt"]
     C1 --> D
     D --> E["📝 English Response"]
-    E --> F{"Original Language\nis English?"}
+    E --> F{"Original Language <br> is English?"}
     F -->|YES| H["💬 Chat Output"]
-    F -->|NO| G["🔄 DEEP-TRANSLATOR\n(Custom Model)"]
-    G --> G1["Original Language\nTranslated Response"]
+    F -->|NO| G["🔄 DEEP-TRANSLATOR <br> (Custom Model)"]
+    G --> G1["Original Language <br> Translated Response"]
     G1 --> H
 
     style A fill:#4A90D9,stroke:#2C5F8A,color:#fff
@@ -302,19 +302,9 @@ python app.py
 
 ---
 
-## 👥 Team
+## 👤 Author
 
-<div align="center">
-
-| | Name | Role |
-|:---:|:---|:---|
-| 👑 | **Shubhankar Maity** | Team Lead — Backend, ML & Architecture |
-| 🎨 | **Aditi** | Frontend Developer — UI/UX Specialist |
-| 🧠 | **Parambrata** | AI & NLP — Language, Translation & Chatbot |
-| 📊 | **Rocky** | Data & Visuals — Analytics & Dashboard |
-| 🔧 | **Biswanath** | Integrator & QA — Testing & Deployment |
-
-</div>
+- **Shubhankar Maity** - *Sole Developer & Creator* - [GitHub Profile](https://github.com/Shubhankarmaity)
 
 ---
 
