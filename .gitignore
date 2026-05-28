@@ -1,1 +1,6 @@
 models/lid_model.bin
+project_images_chatgpt/
+project_images_gemini/
+__pycache__/
+*.pyc
+.env
