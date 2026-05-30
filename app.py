@@ -21,7 +21,7 @@ def convert_to_village_style(text):
         'ঠিক': 'ঠিক',
         'দরকার': 'লাগবো',
         'কেমন': 'কিমান',
-        # More village mapping words/phrases you can add it
+        # More village mapping words/phrases you can add it here
     }
     for std, vill in mapping.items():
         text = text.replace(std, vill)
